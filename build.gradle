@@ -1,6 +1,16 @@
 buildscript {
     repositories {
         gradlePluginPortal()
+        mavenCentral() // Maven Central 저장소를 포함
+        maven {
+            url = "https://files.minecraftforge.net/maven/"
+        }
+        maven {
+            url = "https://maven.lwjgl.org"
+            content {
+                includeGroup "org.lwjgl"
+            }
+        }
         maven {
             name = "Forge"
             url = "https://maven.minecraftforge.net"
