@@ -13,4 +13,8 @@ public class SSItems
     public static Item FOOD;
     public static Item SEASON_SENSOR;
     public static Item GARLIC;
+    public static Item NAPACABBAGE;
+    public static Item SPINACH;
+    public static Item PEPPER;
+    public static Item CHIVES;
 }

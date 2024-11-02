@@ -8,9 +8,7 @@ import net.minecraft.world.item.Item;
 import sereneseasons.api.SSBlocks;
 import sereneseasons.api.SSItems;
 import sereneseasons.core.SereneSeasons;
-import sereneseasons.item.CalendarItem;
-import sereneseasons.item.FoodItem;
-import sereneseasons.item.GarlicItem;
+import sereneseasons.item.*;
 
 import java.util.function.BiConsumer;
 
@@ -42,6 +40,26 @@ public class ModItems
                 .build()
         )));
         GARLIC = register(func, "garlic", new GarlicItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
+                .nutrition(6)
+                .saturationModifier(1.2f)
+                .build()
+        )));
+        NAPACABBAGE = register(func, "napacabbage", new NapaCabbageItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
+                .nutrition(6)
+                .saturationModifier(1.2f)
+                .build()
+        )));
+        SPINACH = register(func, "spinach", new SpinachItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
+                .nutrition(6)
+                .saturationModifier(1.2f)
+                .build()
+        )));
+        PEPPER = register(func, "pepper", new PepperItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
+                .nutrition(6)
+                .saturationModifier(1.2f)
+                .build()
+        )));
+        CHIVES = register(func, "chives", new ChivesItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
                 .nutrition(6)
                 .saturationModifier(1.2f)
                 .build()

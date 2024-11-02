@@ -12,6 +12,11 @@
   "item.sereneseasons.ss_icon": "SS 아이콘",
   "item.sereneseasons.calendar": "달력",
   "item.sereneseasons.food" : "음식",
+  "item.sereneseasons.garlic" : "마늘",
+  "item.sereneseasons.napacabbage" : "배추",
+  "item.sereneseasons.spinach" : "시금치",
+  "item.sereneseasons.pepper" : "고추",
+  "item.sereneseasons.chives" : "쪽파",
 
   "desc.sereneseasons.fertile_seasons": "비옥한 계절",
   "desc.sereneseasons.year_round": "연중지속",
