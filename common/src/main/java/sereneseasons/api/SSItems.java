@@ -23,4 +23,9 @@ public class SSItems
     public static Item SPINACH;
     public static Item PEPPER;
     public static Item CHIVES;
+    public static Item GIMCHI;
+    public static Item CAPRESE;
+    public static Item SALAD;
+    public static Item POPCORN;
+    public static Item CUCUMBER_GIMCHI;
 }
