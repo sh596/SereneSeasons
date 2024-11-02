@@ -8,7 +8,13 @@ import net.minecraft.world.item.Item;
 import sereneseasons.api.SSBlocks;
 import sereneseasons.api.SSItems;
 import sereneseasons.core.SereneSeasons;
+
+import sereneseasons.item.CalendarItem;
+import sereneseasons.item.CucumberItem;
+import sereneseasons.item.FoodItem;
+
 import sereneseasons.item.*;
+
 
 import java.util.function.BiConsumer;
 
@@ -39,31 +45,52 @@ public class ModItems
                 .saturationModifier(1.2f)
                 .build()
         )));
+
+
+        SSItems.CUCUMBER = register(func, "cucumber", new CucumberItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
+
         GARLIC = register(func, "garlic", new GarlicItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
                 .nutrition(6)
                 .saturationModifier(1.2f)
                 .build()
         )));
+
+        SSItems.CABBAGE =  register(func, "cabbage", new CucumberItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
+
         NAPACABBAGE = register(func, "napacabbage", new NapaCabbageItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
+
                 .nutrition(6)
                 .saturationModifier(1.2f)
                 .build()
         )));
+
+        SSItems.CORN = register(func, "corn", new CucumberItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
+
         SPINACH = register(func, "spinach", new SpinachItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
+
                 .nutrition(6)
                 .saturationModifier(1.2f)
                 .build()
         )));
+
+        SSItems.TOMATO = register(func, "tomato", new CucumberItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
+                .nutrition(6)
+                .saturationModifier(1.2f)
+                .build())));
+        RADISH = register(func, "radish", new CucumberItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
+
         PEPPER = register(func, "pepper", new PepperItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
                 .nutrition(6)
                 .saturationModifier(1.2f)
                 .build()
         )));
         CHIVES = register(func, "chives", new ChivesItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
+
                 .nutrition(6)
                 .saturationModifier(1.2f)
                 .build()
         )));
+
     }
 
     public static void registerBlockItems(BiConsumer<ResourceLocation, Item> func)
