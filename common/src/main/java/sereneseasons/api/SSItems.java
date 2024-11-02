@@ -12,4 +12,5 @@ public class SSItems
     public static Item SS_ICON;
     public static Item FOOD;
     public static Item SEASON_SENSOR;
+    public static Item GARLIC;
 }

@@ -10,6 +10,7 @@ import sereneseasons.api.SSItems;
 import sereneseasons.core.SereneSeasons;
 import sereneseasons.item.CalendarItem;
 import sereneseasons.item.FoodItem;
+import sereneseasons.item.GarlicItem;
 
 import java.util.function.BiConsumer;
 
@@ -36,6 +37,11 @@ public class ModItems
         // Main Items
         SSItems.CALENDAR = register(func, "calendar", new CalendarItem(new Item.Properties().stacksTo(1)));
         SSItems.FOOD = register(func, "food", new FoodItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
+                .nutrition(6)
+                .saturationModifier(1.2f)
+                .build()
+        )));
+        GARLIC = register(func, "garlic", new GarlicItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
                 .nutrition(6)
                 .saturationModifier(1.2f)
                 .build()
