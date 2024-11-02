@@ -23,4 +23,8 @@ public class SSItems
     public static Item SPINACH;
     public static Item PEPPER;
     public static Item CHIVES;
+    public static Item CUCUMBERSOUP;
+    public static Item FRENCHFRIES;
+    public static Item PASTA;
+    public static Item PIZZA;
 }

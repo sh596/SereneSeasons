@@ -100,7 +100,30 @@ public class ModItems
                 .saturationModifier(1.2f)
                 .build()
         )));
+        CUCUMBERSOUP = register(func, "cucumbersoup", new CucumberSoupItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
 
+                .nutrition(6)
+                .saturationModifier(1.2f)
+                .build()
+        )));
+        FRENCHFRIES = register(func, "frenchfries", new FrenchFries(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
+
+                .nutrition(6)
+                .saturationModifier(1.2f)
+                .build()
+        )));
+        PASTA = register(func, "pasta", new PastaItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
+
+                .nutrition(6)
+                .saturationModifier(1.2f)
+                .build()
+        )));
+        PIZZA = register(func, "pizza", new PizzaItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
+
+                .nutrition(6)
+                .saturationModifier(1.2f)
+                .build()
+        )));
     }
 
     public static void registerBlockItems(BiConsumer<ResourceLocation, Item> func)
