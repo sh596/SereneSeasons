@@ -17,6 +17,10 @@
   "item.sereneseasons.spinach" : "시금치",
   "item.sereneseasons.pepper" : "고추",
   "item.sereneseasons.chives" : "쪽파",
+  "item.sereneseasons.cucumbersoup" : "오이냉국",
+  "item.sereneseasons.frenchfries" : "감자튀김",
+  "item.sereneseasons.pasta" : "스파게티",
+  "item.sereneseasons.pizza" : "피자",
 
   "desc.sereneseasons.fertile_seasons": "비옥한 계절",
   "desc.sereneseasons.year_round": "연중지속",
