@@ -9,6 +9,7 @@ import sereneseasons.api.SSBlocks;
 import sereneseasons.api.SSItems;
 import sereneseasons.core.SereneSeasons;
 import sereneseasons.item.CalendarItem;
+import sereneseasons.item.CucumberItem;
 import sereneseasons.item.FoodItem;
 
 import java.util.function.BiConsumer;
@@ -40,6 +41,33 @@ public class ModItems
                 .saturationModifier(1.2f)
                 .build()
         )));
+
+        SSItems.CUCUMBER = register(func, "cucumber", new CucumberItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
+                .nutrition(6)
+                .saturationModifier(1.2f)
+                .build()
+        )));
+        SSItems.CABBAGE =  register(func, "cabbage", new CucumberItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
+                .nutrition(6)
+                .saturationModifier(1.2f)
+                .build()
+        )));
+        SSItems.CORN = register(func, "corn", new CucumberItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
+                .nutrition(6)
+                .saturationModifier(1.2f)
+                .build()
+        )));
+        SSItems.TOMATO = register(func, "tomato", new CucumberItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
+                .nutrition(6)
+                .saturationModifier(1.2f)
+                .build())));
+        RADISH = register(func, "radish", new CucumberItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
+                .nutrition(6)
+                .saturationModifier(1.2f)
+                .build()
+        )));
+
+
     }
 
     public static void registerBlockItems(BiConsumer<ResourceLocation, Item> func)
