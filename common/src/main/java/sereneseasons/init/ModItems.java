@@ -58,7 +58,7 @@ public class ModItems
                 .build()
         )));
 
-        SSItems.CABBAGE =  register(func, "cabbage", new CucumberItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
+        SSItems.CABBAGE =  register(func, "cabbage", new CabbageItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
                 .nutrition(6)
                 .saturationModifier(1.2f)
                 .build()
@@ -69,7 +69,7 @@ public class ModItems
                 .build()
         )));
 
-        SSItems.CORN = register(func, "corn", new CucumberItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
+        SSItems.CORN = register(func, "corn", new CornItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
                 .nutrition(6)
                 .saturationModifier(1.2f)
                 .build()
@@ -80,11 +80,11 @@ public class ModItems
                 .build()
         )));
 
-        SSItems.TOMATO = register(func, "tomato", new CucumberItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
+        SSItems.TOMATO = register(func, "tomato", new TomatoItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
                 .nutrition(6)
                 .saturationModifier(1.2f)
                 .build())));
-        RADISH = register(func, "radish", new CucumberItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
+        RADISH = register(func, "radish", new RadishItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
                 .nutrition(6)
                 .saturationModifier(1.2f)
                 .build()
@@ -100,26 +100,47 @@ public class ModItems
                 .saturationModifier(1.2f)
                 .build()
         )));
-        CUCUMBERSOUP = register(func, "cucumbersoup", new CucumberSoupItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
 
+        CUCUMBERSOUP = register(func, "cucumbersoup", new CucumberSoupItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
                 .nutrition(6)
                 .saturationModifier(1.2f)
                 .build()
         )));
-        FRENCHFRIES = register(func, "frenchfries", new FrenchFries(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
+        GIMCHI = register(func, "gimchi", new GimchiItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
 
+        CAPRESE = register(func, "caprese", new CapreseItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
+                .nutrition(6)
+                .saturationModifier(1.2f)
+                .build()
+        )));
+        SALAD = register(func, "salad", new SaladItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
+                .nutrition(6)
+                .saturationModifier(1.2f)
+                .build()
+        )));
+        POPCORN = register(func, "popcorn", new PopcornItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
+                .nutrition(6)
+                .saturationModifier(1.2f)
+                .build()
+        )));
+        CUCUMBER_GIMCHI = register(func, "cucumber_gimchi", new CucumberGimchiItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
+                .nutrition(6)
+                .saturationModifier(1.2f)
+                .build()
+        )));
+
+
+        FRENCHFRIES = register(func, "frenchfries", new FrenchFries(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
                 .nutrition(6)
                 .saturationModifier(1.2f)
                 .build()
         )));
         PASTA = register(func, "pasta", new PastaItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
-
                 .nutrition(6)
                 .saturationModifier(1.2f)
                 .build()
         )));
         PIZZA = register(func, "pizza", new PizzaItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
-
                 .nutrition(6)
                 .saturationModifier(1.2f)
                 .build()
