@@ -48,7 +48,10 @@ public class ModItems
 
 
         SSItems.CUCUMBER = register(func, "cucumber", new CucumberItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
-
+                .nutrition(6)
+                .saturationModifier(1.2f)
+                .build()
+        )));
         GARLIC = register(func, "garlic", new GarlicItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
                 .nutrition(6)
                 .saturationModifier(1.2f)
@@ -56,18 +59,22 @@ public class ModItems
         )));
 
         SSItems.CABBAGE =  register(func, "cabbage", new CucumberItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
-
+                .nutrition(6)
+                .saturationModifier(1.2f)
+                .build()
+        )));
         NAPACABBAGE = register(func, "napacabbage", new NapaCabbageItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
-
                 .nutrition(6)
                 .saturationModifier(1.2f)
                 .build()
         )));
 
         SSItems.CORN = register(func, "corn", new CucumberItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
-
+                .nutrition(6)
+                .saturationModifier(1.2f)
+                .build()
+        )));
         SPINACH = register(func, "spinach", new SpinachItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
-
                 .nutrition(6)
                 .saturationModifier(1.2f)
                 .build()
@@ -78,7 +85,10 @@ public class ModItems
                 .saturationModifier(1.2f)
                 .build())));
         RADISH = register(func, "radish", new CucumberItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
-
+                .nutrition(6)
+                .saturationModifier(1.2f)
+                .build()
+        )));
         PEPPER = register(func, "pepper", new PepperItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
                 .nutrition(6)
                 .saturationModifier(1.2f)
