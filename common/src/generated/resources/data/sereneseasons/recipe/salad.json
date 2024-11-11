@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category" : "food",
+  "key": {
+    "C": {
+      "item": "sereneseasons:cabbage"
+    },
+    "A": {
+      "item": "minecraft:apple"
+    },
+    "E": {
+      "item": "minecraft:egg"
+    }
+  },
+  "pattern": [
+    " A ",
+    "CEC",
+    " C "
+  ],
+  "result": {
+    "count": 1,
+    "id": "sereneseasons:salad"
+  }
+}

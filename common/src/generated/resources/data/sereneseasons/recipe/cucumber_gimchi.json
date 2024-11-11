@@ -5,23 +5,19 @@
     "P": {
       "item": "sereneseasons:pepper"
     },
-    "N": {
-      "item": "sereneseasons:napacabbage"
+    "C": {
+      "item": "sereneseasons:cucumber"
     },
     "G": {
       "item": "sereneseasons:garlic"
-    },
-    "C": {
-      "item": "sereneseasons:chives"
     }
   },
   "pattern": [
     "PPP",
-    "GCG",
-    " N "
+    "GCG"
   ],
   "result": {
-    "count": 6,
-    "id": "sereneseasons:gimchi"
+    "count": 1,
+    "id": "sereneseasons:cucumber_gimchi"
   }
 }
