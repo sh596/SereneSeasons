@@ -111,6 +111,7 @@ public class ModItems
                 .saturationModifier(1.2f)
                 .build()
         )));
+
         CAPRESE = register(func, "caprese", new CapreseItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
                 .nutrition(6)
                 .saturationModifier(1.2f)
