@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category" : "food",
+  "key": {
+    "W": {
+      "item": "minecraft:wheat"
+    },
+    "T": {
+      "item": "sereneseasons:tomato"
+    }
+  },
+  "pattern": [
+    "T",
+    "W"
+  ],
+  "result": {
+    "count": 1,
+    "id": "sereneseasons:pasta"
+  }
+}
