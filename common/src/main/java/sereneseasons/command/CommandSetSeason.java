@@ -28,6 +28,7 @@ public class CommandSetSeason
             }));
     }
 
+
     private static int setSeason(CommandSourceStack cs, Level world, Season.SubSeason season)
     {
         if (season != null)
@@ -45,4 +46,5 @@ public class CommandSetSeason
 
         return 1;
     }
+
 }

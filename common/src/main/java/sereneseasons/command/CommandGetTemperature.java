@@ -17,24 +17,21 @@ import sereneseasons.season.TemperatureHandler;
 
 import java.util.Locale;
 
-public class CommandGetSeason
+public class CommandGetTemperature
 {
     static ArgumentBuilder<CommandSourceStack, ?> register()
     {
-        return Commands.literal("get")
-            .executes(ctx -> {
-                Level world = ctx.getSource().getLevel();
-                return getSeason(ctx.getSource(), world);
-            });
+        return Commands.literal("temp")
+                .executes(ctx -> {
+                    Level world = ctx.getSource().getLevel();
+                    return getTemp(ctx.getSource(), world);
+                });
     }
 
-    private static int getSeason(CommandSourceStack cs, Level world)
+    private static int getTemp(CommandSourceStack cs, Level world)
     {
-        SeasonSavedData seasonData = SeasonHandler.getSeasonSavedData(world);
         float temp = TemperatureHandler.getTemp(world);
-        SeasonTime time = new SeasonTime(seasonData.seasonCycleTicks);
-        int subSeasonDuration = ModConfig.seasons.subSeasonDuration;
-        cs.sendSuccess(() -> Component.translatable("commands.sereneseasons.getseason.success", Component.translatable("desc.sereneseasons."+ time.getSubSeason().toString().toLowerCase(Locale.ROOT)), (time.getDay() % subSeasonDuration) + 1, subSeasonDuration, time.getSeasonCycleTicks() % time.getDayDuration(), time.getDayDuration()), true);
+        cs.sendSuccess(() -> Component.translatable("commands.sereneseasons.gettemperature.success", temp+"" ), true);
 
         return 1;
     }

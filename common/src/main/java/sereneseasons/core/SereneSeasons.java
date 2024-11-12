@@ -15,6 +15,7 @@ import sereneseasons.init.*;
 import sereneseasons.season.RandomUpdateHandler;
 import sereneseasons.season.SeasonHandler;
 import sereneseasons.season.SeasonalCropGrowthHandler;
+import sereneseasons.season.TemperatureHandler;
 
 public class SereneSeasons
 {
@@ -47,6 +48,9 @@ public class SereneSeasons
         // Season updates
         EventManager.addListener(SeasonHandler::onLevelTick);
         EventManager.addListener(SeasonHandler::onJoinLevel);
+
+        //Tmperature
+        EventManager.addListener(TemperatureHandler::onLevelTick);
 
         // Melting
         EventManager.addListener(RandomUpdateHandler::onWorldTick);
