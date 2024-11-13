@@ -20,6 +20,7 @@ public class SeasonCommands
                         .requires(cs -> cs.hasPermission(2))
                         .then(CommandSetSeason.register())
                         .then(CommandGetSeason.register())
+                        .then(CommandGetTemperature.register())
         );
     }
 
