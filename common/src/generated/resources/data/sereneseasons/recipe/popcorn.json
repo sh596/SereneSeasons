@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "sereneseasons:cucumber"
+  },
+  "result": "sereneseasons:popcorn",
+  "experience": 0.35,
+  "cookingtime": 200
+}

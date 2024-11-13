@@ -38,6 +38,7 @@ public class ModItems
     	// SS Creative Tab Icon
         SSItems.SS_ICON = register(func, "ss_icon", new Item(new Item.Properties()));
 
+
         // Main Items
         SSItems.CALENDAR = register(func, "calendar", new CalendarItem(new Item.Properties().stacksTo(1)));
         SSItems.FOOD = register(func, "food", new FoodItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
