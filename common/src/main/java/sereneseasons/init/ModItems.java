@@ -41,12 +41,12 @@ public class ModItems
 
         // Main Items
         SSItems.CALENDAR = register(func, "calendar", new CalendarItem(new Item.Properties().stacksTo(1)));
-        SSItems.FOOD = register(func, "food", new FoodItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
-                .nutrition(6)
-                .saturationModifier(1.2f)
-                .build()
-        )));
-
+//        SSItems.FOOD = register(func, "food", new FoodItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
+//                .nutrition(6)
+//                .saturationModifier(1.2f)
+//                .build()
+//        )));
+        SSItems.FOOD = register(func, "food", new BlockItem(SSBlocks.DUMB_CROP, new Item.Properties().stacksTo(64)));
 
         SSItems.CUCUMBER = register(func, "cucumber", new CucumberItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
                 .nutrition(6)
