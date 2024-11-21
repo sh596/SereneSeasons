@@ -15,24 +15,24 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import sereneseasons.api.SSItems;
 
-public class DumbCropBlock extends CropBlock {
-    public static final MapCodec<DumbCropBlock> CODEC = simpleCodec(DumbCropBlock::new);
+public class TomatoCropBlock extends CropBlock {
+    public static final MapCodec<TomatoCropBlock> CODEC = simpleCodec(TomatoCropBlock::new);
     private static final VoxelShape[] SHAPE_BY_AGE;
-    public static final int MAX_AGE = 7;
+    public static final int MAX_AGE = 4;
     public static final IntegerProperty AGE;
 
-    public DumbCropBlock(Properties $$0) {
+    public TomatoCropBlock(Properties $$0) {
         super($$0);
     }
 
     @Override
-    public MapCodec<? extends DumbCropBlock> codec() {
+    public MapCodec<? extends TomatoCropBlock> codec() {
         return CODEC;
     }
 
     @Override
     protected ItemLike getBaseSeedId() {
-        return SSItems.FOOD;
+        return SSItems.TOMATO_SEED;
     }
 
     @Override
@@ -56,16 +56,17 @@ public class DumbCropBlock extends CropBlock {
     }
 
     static {
-        AGE = BlockStateProperties.AGE_7;
+        AGE = BlockStateProperties.AGE_4;
         SHAPE_BY_AGE = new VoxelShape[]{
-            Block.box((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)2.0F, (double)16.0F),
-            Block.box((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)4.0F, (double)16.0F),
-            Block.box((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)6.0F, (double)16.0F),
-            Block.box((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)8.0F, (double)16.0F),
-            Block.box((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)10.0F, (double)16.0F),
-            Block.box((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)12.0F, (double)16.0F),
-            Block.box((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)14.0F, (double)16.0F),
-            Block.box((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)16.0F, (double)16.0F)
+                Block.box((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)2.0F, (double)16.0F),
+                Block.box((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)3.0F, (double)16.0F),
+                Block.box((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)5.0F, (double)16.0F),
+                Block.box((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)7.0F, (double)16.0F),
+                Block.box((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)8.0F, (double)16.0F)
+//                Block.box((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)9.0F, (double)16.0F),
+//                Block.box((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)9.0F, (double)16.0F),
+//                Block.box((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)10.0F, (double)16.0F)
         };
     }
 }
+

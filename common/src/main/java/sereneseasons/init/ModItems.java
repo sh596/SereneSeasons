@@ -46,7 +46,9 @@ public class ModItems
 //                .saturationModifier(1.2f)
 //                .build()
 //        )));
-        SSItems.FOOD = register(func, "food", new BlockItem(SSBlocks.DUMB_CROP, new Item.Properties().stacksTo(64)));
+        SSItems.TOMATO_SEED = register(func, "tomato_seed", new BlockItem(SSBlocks.TOMATO_CROP, new Item.Properties().stacksTo(64)));
+
+        SSItems.NAPACABBAGE_SEED = register(func, "napacabbage_seed", new BlockItem(SSBlocks.NAPACABBAGE_CROP, new Item.Properties().stacksTo(64)));
 
         SSItems.CUCUMBER = register(func, "cucumber", new CucumberItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
                 .nutrition(6)

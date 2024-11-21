@@ -5,5 +5,6 @@ import net.minecraft.world.level.block.Block;
 
 public class SSBlocks {
     public static Block SEASON_SENSOR;
-    public static Block DUMB_CROP;
+    public static Block NAPACABBAGE_CROP;
+    public static Block TOMATO_CROP;
 }

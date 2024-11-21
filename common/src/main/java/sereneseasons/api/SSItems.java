@@ -8,9 +8,10 @@ import net.minecraft.world.item.Item;
 
 public class SSItems
 {
+    public static Item NAPACABBAGE_SEED;
+    public static Item TOMATO_SEED;
     public static Item CALENDAR;
     public static Item SS_ICON;
-    public static Item FOOD;
     public static Item SEASON_SENSOR;
 
     public static Item CUCUMBER;
@@ -34,5 +35,4 @@ public class SSItems
     public static Item SALAD;
     public static Item POPCORN;
     public static Item CUCUMBER_GIMCHI;
-
 }
