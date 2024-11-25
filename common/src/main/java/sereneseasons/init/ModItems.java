@@ -48,6 +48,10 @@ public class ModItems
 //        )));
         SSItems.TOMATO_SEED = register(func, "tomato_seed", new BlockItem(SSBlocks.TOMATO_CROP, new Item.Properties().stacksTo(64)));
 
+        SSItems.CORN_SEED = register(func, "corn_seed", new BlockItem(SSBlocks.CORN_CROP, new Item.Properties().stacksTo(64)));
+
+        SSItems.CHIVES_SEED = register(func, "chives_seed", new BlockItem(SSBlocks.CHIVES_CROP, new Item.Properties().stacksTo(64)));
+
         SSItems.NAPACABBAGE_SEED = register(func, "napacabbage_seed", new BlockItem(SSBlocks.NAPACABBAGE_CROP, new Item.Properties().stacksTo(64)));
 
         SSItems.CUCUMBER = register(func, "cucumber", new CucumberItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()

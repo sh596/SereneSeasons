@@ -10,6 +10,8 @@ public class SSItems
 {
     public static Item NAPACABBAGE_SEED;
     public static Item TOMATO_SEED;
+    public static Item CORN_SEED;
+    public static Item CHIVES_SEED;
     public static Item CALENDAR;
     public static Item SS_ICON;
     public static Item SEASON_SENSOR;

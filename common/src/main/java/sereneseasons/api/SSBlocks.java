@@ -7,4 +7,6 @@ public class SSBlocks {
     public static Block SEASON_SENSOR;
     public static Block NAPACABBAGE_CROP;
     public static Block TOMATO_CROP;
+    public static Block CORN_CROP;
+    public static Block CHIVES_CROP;
 }
