@@ -15,24 +15,24 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import sereneseasons.api.SSItems;
 
-public class CornCropBlock extends CropBlock {
-    public static final MapCodec<CornCropBlock> CODEC = simpleCodec(CornCropBlock::new);
+public class CabbageCropBlock extends CropBlock {
+    public static final MapCodec<CabbageCropBlock> CODEC = simpleCodec(CabbageCropBlock::new);
     private static final VoxelShape[] SHAPE_BY_AGE;
     public static final int MAX_AGE = 3;
     public static final IntegerProperty AGE;
 
-    public CornCropBlock(Properties $$0) {
+    public CabbageCropBlock(Properties $$0) {
         super($$0);
     }
 
     @Override
-    public MapCodec<? extends CornCropBlock> codec() {
+    public MapCodec<? extends CabbageCropBlock> codec() {
         return CODEC;
     }
 
     @Override
     protected ItemLike getBaseSeedId() {
-        return SSItems.CORN_SEED;
+        return SSItems.CABBAGE_SEED;
     }
 
     @Override
@@ -62,7 +62,7 @@ public class CornCropBlock extends CropBlock {
                 Block.box((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)3.0F, (double)16.0F),
                 Block.box((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)5.0F, (double)16.0F),
                 Block.box((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)7.0F, (double)16.0F)
-//                Block.box((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)8.0F, (double)16.0F),
+//                Block.box((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)8.0F, (double)16.0F)
 //                Block.box((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)9.0F, (double)16.0F),
 //                Block.box((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)9.0F, (double)16.0F),
 //                Block.box((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)10.0F, (double)16.0F)

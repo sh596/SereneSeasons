@@ -9,4 +9,5 @@ public class SSBlocks {
     public static Block TOMATO_CROP;
     public static Block CORN_CROP;
     public static Block CHIVES_CROP;
+    public static Block CABBAGE_CROP;
 }

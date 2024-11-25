@@ -11,9 +11,6 @@
     },
     "age=3": {
       "model": "sereneseasons:block/corn_stage3"
-    },
-    "age=4": {
-      "model": "sereneseasons:block/corn_stage4"
     }
   }
 }
