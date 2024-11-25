@@ -23,5 +23,6 @@ public class ModPackets
     public static void register(String name, CustomPacket<?> packet)
     {
         HANDLER.register(ResourceLocation.fromNamespaceAndPath(SereneSeasons.MOD_ID, name), packet);
+
     }
 }
