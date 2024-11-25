@@ -154,6 +154,7 @@ public class ModItems
     public static void registerBlockItems(BiConsumer<ResourceLocation, Item> func)
     {
         SEASON_SENSOR = register(func, "season_sensor", new BlockItem(SSBlocks.SEASON_SENSOR, new Item.Properties()));
+        TOMATO = register(func, "season_crop",new BlockItem(SSBlocks.SEASON_CROP, new Item.Properties()));
     }
 
     private static Item register(BiConsumer<ResourceLocation, Item> func, String name, Item item)

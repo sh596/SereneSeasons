@@ -13,12 +13,22 @@ public class ModBlocks
 {
     public static void registerBlocks(BiConsumer<ResourceLocation, Block> func)
     {
-        SSBlocks.SEASON_SENSOR = register(func, new SeasonSensorBlock(Block.Properties.of().strength(0.2F).sound(SoundType.STONE)), "season_sensor");
+        System.out.println("Registering blocks...");
+
+        SSBlocks.SEASON_SENSOR = register(func, new SeasonSensorBlock(
+                        Block.Properties.of()
+                                .strength(0.2F)
+                                .sound(SoundType.STONE)),
+                "season_sensor");
+        ;
+
+        System.out.println("Blocks registered successfully.");
     }
 
     private static Block register(BiConsumer<ResourceLocation, Block> func, Block block, String name)
     {
-        func.accept(ResourceLocation.fromNamespaceAndPath(SereneSeasons.MOD_ID, name), block);
+        ResourceLocation location = ResourceLocation.fromNamespaceAndPath(SereneSeasons.MOD_ID, name);
+        func.accept(location, block);
         return block;
     }
 }

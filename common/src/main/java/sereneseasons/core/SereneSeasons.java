@@ -51,6 +51,8 @@ public class SereneSeasons
 
         //Tmperature
         EventManager.addListener(TemperatureHandler::onLevelTick);
+        EventManager.addListener(TemperatureHandler::onJoinLevel);
+
 
         // Melting
         EventManager.addListener(RandomUpdateHandler::onWorldTick);
