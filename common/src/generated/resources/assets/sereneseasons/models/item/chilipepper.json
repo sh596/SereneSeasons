@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "sereneseasons:item/pepper"
+    "layer0": "sereneseasons:item/chilipepper"
   }
 }
