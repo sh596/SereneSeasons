@@ -1,7 +1,7 @@
 {
   "commands.sereneseasons.usage": "/season <get/set> [args]",
   "commands.sereneseasons.getseason.success": "Current season is %s, day %s/%s, tick %s/%s",
-  "commands.sereneseasons.gettemperature.success": "Current temperature is %s",
+  "commands.sereneseasons.gettemperature.success": "Current temperature is %.2f",
 
   "commands.sereneseasons.setseason.success": "Set season to %s",
   "commands.sereneseasons.setseason.fail": "Invalid season %s",
