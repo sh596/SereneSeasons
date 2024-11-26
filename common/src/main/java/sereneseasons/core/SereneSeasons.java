@@ -5,17 +5,16 @@
 package sereneseasons.core;
 
 import glitchcore.event.EventManager;
+import glitchcore.event.TickEvent;
 import glitchcore.util.Environment;
 import glitchcore.util.RegistryHelper;
 import net.minecraft.core.registries.Registries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import sereneseasons.bossbar.BossBar;
 import sereneseasons.command.SeasonCommands;
 import sereneseasons.init.*;
-import sereneseasons.season.RandomUpdateHandler;
-import sereneseasons.season.SeasonHandler;
-import sereneseasons.season.SeasonalCropGrowthHandler;
-import sereneseasons.season.TemperatureHandler;
+import sereneseasons.season.*;
 
 public class SereneSeasons
 {
@@ -48,8 +47,10 @@ public class SereneSeasons
         // Season updates
         EventManager.addListener(SeasonHandler::onLevelTick);
         EventManager.addListener(SeasonHandler::onJoinLevel);
+        EventManager.addListener(BossBarHandler::onJoinLevel);
+        EventManager.addListener(BossBarHandler::onWorldTick);
 
-        //Tmperature
+        //Temperature
         EventManager.addListener(TemperatureHandler::onLevelTick);
 
         // Melting
