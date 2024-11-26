@@ -9,5 +9,4 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 public class SSBlockEntities
 {
     public static BlockEntityType<?> SEASON_SENSOR;
-    public static BlockEntityType<?> SEASON_CROP;
 }

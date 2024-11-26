@@ -28,17 +28,6 @@ public class TemperatureHandler {
 
     private static final Logger log = LoggerFactory.getLogger(TemperatureHandler.class);
 
-    public static void onLevelTick(TickEvent.Level event){
-        Level level = event.getLevel();
-        if (!level.isClientSide && level instanceof ServerLevel serverLevel) {
-            log.info(serverLevel.players().toString());
-            for (ServerPlayer player : serverLevel.players()) {
-                player.hurt(source(DamageTypes.IN_FIRE), );
-            }
-        }
-        Season.SubSeason subSeason = SeasonHelper.getSeasonState(event.getLevel()).getSubSeason();
-        log.info(event.getLevel().players().toString());
-    }
     public static void onJoinLevel(PlayerEvent.JoinLevel event){
         log.info(String.valueOf(event.getPlayer().tickCount));
     }
@@ -83,7 +72,7 @@ public class TemperatureHandler {
         }
     }
 
-    private DamageSource source(ResourceKey<DamageType> $$0) {
+    /*private DamageSource source(ResourceKey<DamageType> $$0) {
         return new DamageSource(this.damageTypes.getHolderOrThrow($$0));
-    }
+    }*/
 }

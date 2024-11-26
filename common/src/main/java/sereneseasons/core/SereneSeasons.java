@@ -51,7 +51,6 @@ public class SereneSeasons
         EventManager.addListener(BossBarHandler::onWorldTick);
 
         //Temperature
-        EventManager.addListener(TemperatureHandler::onLevelTick);
         EventManager.addListener(TemperatureHandler::onJoinLevel);
 
 

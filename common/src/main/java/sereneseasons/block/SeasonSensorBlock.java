@@ -5,8 +5,6 @@
 package sereneseasons.block;
 
 import com.mojang.serialization.MapCodec;
-import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.*;
