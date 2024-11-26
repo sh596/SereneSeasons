@@ -47,6 +47,8 @@ public class SereneSeasons
         // Season updates
         EventManager.addListener(SeasonHandler::onLevelTick);
         EventManager.addListener(SeasonHandler::onJoinLevel);
+
+        //BossBar
         EventManager.addListener(BossBarHandler::onJoinLevel);
         EventManager.addListener(BossBarHandler::onWorldTick);
 
