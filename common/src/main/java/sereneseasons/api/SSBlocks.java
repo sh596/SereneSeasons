@@ -10,4 +10,5 @@ public class SSBlocks {
     public static Block CORN_CROP;
     public static Block CHIVES_CROP;
     public static Block CABBAGE_CROP;
+    public static Block CHILIPEPPER_CROP;
 }

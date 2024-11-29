@@ -19,6 +19,7 @@ public class ModBlocks
         SSBlocks.CORN_CROP = register(func, new CornCropBlock(Block.Properties.of().noCollission().noOcclusion().randomTicks().sound(SoundType.CROP)), "corn_crop");
         SSBlocks.CHIVES_CROP = register(func, new ChivesCropBlock(Block.Properties.of().noCollission().noOcclusion().randomTicks().sound(SoundType.CROP)), "chives_crop");
         SSBlocks.CABBAGE_CROP = register(func, new CabbageCropBlock(Block.Properties.of().noCollission().noOcclusion().randomTicks().sound(SoundType.CROP)), "cabbage_crop");
+        SSBlocks.CHILIPEPPER_CROP = register(func, new CabbageCropBlock(Block.Properties.of().noCollission().noOcclusion().randomTicks().sound(SoundType.CROP)), "chilipepper_crop");
     }
 
     private static Block register(BiConsumer<ResourceLocation, Block> func, Block block, String name)

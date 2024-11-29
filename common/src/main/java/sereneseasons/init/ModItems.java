@@ -11,7 +11,6 @@ import sereneseasons.core.SereneSeasons;
 
 import sereneseasons.item.CalendarItem;
 import sereneseasons.item.CucumberItem;
-import sereneseasons.item.FoodItem;
 
 import sereneseasons.item.*;
 
@@ -56,6 +55,8 @@ public class ModItems
 
         SSItems.NAPACABBAGE_SEED = register(func, "napacabbage_seed", new BlockItem(SSBlocks.NAPACABBAGE_CROP, new Item.Properties().stacksTo(64)));
 
+        SSItems.CHILIPEPPER_SEED = register(func, "chilipepper_seed", new BlockItem(SSBlocks.CHILIPEPPER_CROP, new Item.Properties().stacksTo(64)));
+
         SSItems.CUCUMBER = register(func, "cucumber", new CucumberItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
                 .nutrition(6)
                 .saturationModifier(1.2f)
@@ -98,7 +99,7 @@ public class ModItems
                 .saturationModifier(1.2f)
                 .build()
         )));
-        PEPPER = register(func, "pepper", new PepperItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
+        CHILIPEPPER = register(func, "chilipepper", new ChilipepperItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
                 .nutrition(6)
                 .saturationModifier(1.2f)
                 .build()

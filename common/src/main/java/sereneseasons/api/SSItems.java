@@ -13,6 +13,7 @@ public class SSItems
     public static Item CORN_SEED;
     public static Item CHIVES_SEED;
     public static Item CABBAGE_SEED;
+    public static Item CHILIPEPPER_SEED;
     public static Item CALENDAR;
     public static Item SS_ICON;
     public static Item SEASON_SENSOR;
@@ -25,7 +26,7 @@ public class SSItems
     public static Item GARLIC;
     public static Item NAPACABBAGE;
     public static Item SPINACH;
-    public static Item PEPPER;
+    public static Item CHILIPEPPER;
     public static Item CHIVES;
 
     public static Item CUCUMBERSOUP;
