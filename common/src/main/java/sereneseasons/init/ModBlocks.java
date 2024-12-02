@@ -19,7 +19,11 @@ public class ModBlocks
         SSBlocks.CORN_CROP = register(func, new CornCropBlock(Block.Properties.of().noCollission().noOcclusion().randomTicks().sound(SoundType.CROP)), "corn_crop");
         SSBlocks.CHIVES_CROP = register(func, new ChivesCropBlock(Block.Properties.of().noCollission().noOcclusion().randomTicks().sound(SoundType.CROP)), "chives_crop");
         SSBlocks.CABBAGE_CROP = register(func, new CabbageCropBlock(Block.Properties.of().noCollission().noOcclusion().randomTicks().sound(SoundType.CROP)), "cabbage_crop");
-        SSBlocks.CHILIPEPPER_CROP = register(func, new CabbageCropBlock(Block.Properties.of().noCollission().noOcclusion().randomTicks().sound(SoundType.CROP)), "chilipepper_crop");
+        SSBlocks.CHILIPEPPER_CROP = register(func, new ChilipepperCropBlock(Block.Properties.of().noCollission().noOcclusion().randomTicks().sound(SoundType.CROP)), "chilipepper_crop");
+        SSBlocks.SPINACH_CROP = register(func, new SpinachCropBlock(Block.Properties.of().noCollission().noOcclusion().randomTicks().sound(SoundType.CROP)), "spinach_crop");
+        SSBlocks.GARLIC_CROP = register(func, new GarlicCropBlock(Block.Properties.of().noCollission().noOcclusion().randomTicks().sound(SoundType.CROP)), "garlic_crop");
+        SSBlocks.CUCUMBER_CROP = register(func, new CucumberCropBlock(Block.Properties.of().noCollission().noOcclusion().randomTicks().sound(SoundType.CROP)), "cucumber_crop");
+        SSBlocks.RADISH_CROP = register(func, new RadishCropBlock(Block.Properties.of().noCollission().noOcclusion().randomTicks().sound(SoundType.CROP)), "radish_crop");
     }
 
     private static Block register(BiConsumer<ResourceLocation, Block> func, Block block, String name)

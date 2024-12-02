@@ -14,6 +14,11 @@ public class SSItems
     public static Item CHIVES_SEED;
     public static Item CABBAGE_SEED;
     public static Item CHILIPEPPER_SEED;
+    public static Item SPINACH_SEED;
+    public static Item GARLIC_SEED;
+    public static Item RADISH_SEED;
+    public static Item CUCUMBER_SEED;
+
     public static Item CALENDAR;
     public static Item SS_ICON;
     public static Item SEASON_SENSOR;
