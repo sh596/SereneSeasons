@@ -42,7 +42,7 @@ public class BossBarHandler {
         PlayerTemperatureSavedData savedData = getPlayerTemperatureSavedData(event.getLevel());
         SeasonSavedData seasonSavedData = getSeasonSavedData(event.getLevel());
         tickcount++;
-        if(seasonSavedData.seasonCycleTicks % SeasonTime.ZERO.getDayDuration() ==1){
+        if(seasonSavedData.seasonCycleTicks % SeasonTime.ZERO.getDayDuration() ==2){
             worldTemp = TemperatureHandler.getTemp(event.getLevel());
         }
         if (tickcount >= Integer.MAX_VALUE) {
