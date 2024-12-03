@@ -56,7 +56,7 @@ public class NapacabbageCropBlock extends CropBlock {
 
         if (!isWinter(subSeason)) {
             // 겨울이 아닌 경우 일정 확률로 작물 파괴 (30% 확률 예시)
-            if (random.nextFloat() < 0.6f) {
+            if (random.nextFloat() < 0.5f) {
                 level.removeBlock(pos, false);  // 작물을 제거 (false는 업데이트 없음)
             }
             return;  // 더 이상 성장하지 않음
