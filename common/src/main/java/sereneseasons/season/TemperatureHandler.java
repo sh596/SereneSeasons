@@ -8,11 +8,14 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.datafix.DataFixTypes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SnowLayerBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.world.level.storage.DimensionDataStorage;
 import net.minecraft.world.phys.Vec3;
@@ -22,7 +25,6 @@ import sereneseasons.api.season.Season;
 import sereneseasons.api.season.SeasonHelper;
 import sereneseasons.init.ModConfig;
 
-import java.awt.*;
 import java.util.function.Supplier;
 
 public class TemperatureHandler {
@@ -38,8 +40,18 @@ public class TemperatureHandler {
             SeasonSavedData seasonSavedData = getSeasonSavedData(event.getLevel());
             TemperatureSavedData savedData = getTemperatureSavedData(event.getLevel());
             if(subSeason.equals(Season.SubSeason.EARLY_SPRING)){
-                for (Player player : event.getLevel().players()) { // 모든 플레이어 반복
-                    spawnFlameParticle((ServerLevel) event.getLevel(), player.position());
+                for (Player player : event.getLevel().players()) {
+                    if(player.position().y > 65){
+                        spawnSandParticle((ServerLevel) event.getLevel(), player.position());
+                    }
+                }
+            }
+            if(subSeason.equals(Season.SubSeason.MID_WINTER)){
+                for (Player player : event.getLevel().players()) {
+                    if(player.position().y > 65){
+                        addSnowInRadius((ServerLevel) event.getLevel(), 15);
+                        spawnSnowParticle((ServerLevel) event.getLevel(), player.position());
+                    }
                 }
             }
             if(seasonSavedData.seasonCycleTicks != 0){
@@ -96,31 +108,41 @@ public class TemperatureHandler {
 
     public static void updateSavedData(Level level ,TemperatureSavedData savedData, int ticks, Season.SubSeason subSeason){
         log.info("duration"+(SeasonTime.ZERO.getDayDuration()));
-        if(ticks % SeasonTime.ZERO.getDayDuration() ==0){
+        if(ticks % SeasonTime.ZERO.getDayDuration() ==1){
             switch (subSeason){
                 case EARLY_SPRING -> {
                     savedData.temperature = ((-2.0f) + ((11.0f + 2.0f) * level.random.nextFloat()));
+                    savedData.setDirty();
                     break;
                 }
                 case MID_SPRING ->{
                     savedData.temperature = ((4.0f) + ((18.0f - 4.0f) * level.random.nextFloat()));
+                    savedData.setDirty();
                     break;
                 }
                 case LATE_SPRING ->{
                     savedData.temperature = ((10.0f) + ((24.0f - 10.0f) * level.random.nextFloat()));
+                    savedData.setDirty();
                     break;
                 }
                 case EARLY_SUMMER -> {
                     savedData.temperature = ((17.0f) + ((27.0f - 17.0f) * level.random.nextFloat()));
+                    savedData.setDirty();
                     break;
                 }
                 case MID_SUMMER ->{
                     savedData.temperature = ((21.0f) + ((29.0f - 21.0f) * level.random.nextFloat()));
+                    savedData.setDirty();
                     break;
                 }
                 case LATE_SUMMER ->{
                     int heatWaveValue =  level.random.nextInt(3);
                     if(heatWaveValue == 0){
+                        for (Player player : level.players()) {
+                            if(player.position().y > 65){
+                                spawnFlameParticle((ServerLevel) level, player.position());
+                            }
+                        }
                         Component text = Component.translatable( "폭염!").setStyle(Style.EMPTY.withColor(TextColor.fromRgb(0xFF0000)));
                         level.players().forEach(player ->
                                 player.sendSystemMessage(text)
@@ -131,37 +153,46 @@ public class TemperatureHandler {
                         savedData.temperature = ((21.0f) + ((30.0f - 21.0f) * level.random.nextFloat()));
                     }
                     log.info("{}summer", savedData.temperature);
+                    savedData.setDirty();
                     break;
                 }
 
                 case EARLY_AUTUMN -> {
                     savedData.temperature = ((15.0f) + ((26.0f - 15.0f) * level.random.nextFloat()));
+                    savedData.setDirty();
                     break;
                 }
                 case MID_AUTUMN ->{
                     savedData.temperature = ((6.0f) + ((20.0f - 6.0f) * level.random.nextFloat()));
+                    savedData.setDirty();
                     break;
                 }
                 case LATE_AUTUMN ->{
                     savedData.temperature = ((-1.0f) + ((11.0f + 1.0f) * level.random.nextFloat()));
+                    savedData.setDirty();
                     break;
                 }
                 case EARLY_WINTER -> {
                     savedData.temperature = ((-9.0f) + ((3.0f + 9.0f) * level.random.nextFloat()));
+                    savedData.setDirty();
                     break;
                 }
                 case MID_WINTER ->{
                     savedData.temperature = ((-12.0f) + ((2.0f + 12.0f) * level.random.nextFloat()));
+                    savedData.setDirty();
+
+
                     break;
                 }
                 case LATE_WINTER ->{
                     savedData.temperature = ((-8.0f) + ((5.0f + 8.0f) * level.random.nextFloat()));
+                    savedData.setDirty();
+
                     break;
                 }
             }
             log.debug( "temp"+(savedData.temperature));
         }
-        savedData.setDirty();
     }
 
     public static TemperatureSavedData getTemperatureSavedData(Level w)
@@ -219,6 +250,7 @@ public class TemperatureHandler {
 
             if (startingSeason > 0)
             {
+
                 savedData.seasonCycleTicks = (startingSeason - 1) * SeasonTime.ZERO.getSubSeasonDuration();
             }
 
@@ -228,10 +260,8 @@ public class TemperatureHandler {
 
         return saveDataManager.computeIfAbsent(new SavedData.Factory<>(defaultSaveDataSupplier, SeasonSavedData::load, DataFixTypes.LEVEL), SeasonSavedData.DATA_IDENTIFIER);
     }
-    public static void spawnFlameParticle(ServerLevel level, Vec3 vec) {
-
+    public static void spawnSandParticle(ServerLevel level, Vec3 vec) {
         var blockState = Blocks.SAND.defaultBlockState();
-
         var particle = new BlockParticleOption(ParticleTypes.FALLING_DUST, blockState);
         level.sendParticles(
                 particle,// 블록 파티클 사용
@@ -240,5 +270,55 @@ public class TemperatureHandler {
                 16.0, 16.0, 16.0, // X, Y, Z 방향으로 퍼짐
                 1 // 속도
         );
+    }
+    public static void spawnSnowParticle(ServerLevel level, Vec3 vec) {
+        var blockState = ParticleTypes.SNOWFLAKE;
+        level.sendParticles(
+                blockState,// 블록 파티클 사용
+                vec.x() + 0.5, vec.y() + 0.5, vec.z() + 0.5, // 위치
+                100, // 파티클 개수
+                10.0, 10.0, 10.0, // X, Y, Z 방향으로 퍼짐
+                10 // 속도
+        );
+    }
+    public static void spawnFlameParticle(ServerLevel level, Vec3 vec) {
+        var blockState = ParticleTypes.FLAME;
+        level.sendParticles(
+                blockState,// 블록 파티클 사용
+                vec.x() + 0.5, vec.y() + 0.5, vec.z() + 0.5, // 위치
+                50, // 파티클 개수
+                1.0, 1.0, 1.0, // X, Y, Z 방향으로 퍼짐
+                1 // 속도
+        );
+    }
+    private static final float SNOW_CHANCE = 0.2f; // 50% 확률로 눈 생성
+
+    private static void addSnowInRadius(ServerLevel world, int radius) {
+        BlockPos playerPos = world.getRandomPlayer().blockPosition();
+        for (int x = -radius; x <= radius; x++) {
+            for (int z = -radius; z <= radius; z++) {
+                BlockPos pos = playerPos.offset(x, 0, z);
+                BlockPos topPos = world.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, pos);
+
+                if (world.getRandom().nextFloat() < SNOW_CHANCE) {
+                    addSnowLayer(world, topPos);
+                }
+
+            }
+        }
+    }
+    private static void addSnowLayer(ServerLevel world, BlockPos pos) {
+        BlockState state = world.getBlockState(pos);
+        if (state.is(Blocks.WATER)) {
+            return; // 물 위에는 눈을 쌓지 않음
+        }
+        if (state.getBlock() == Blocks.SNOW) {
+            int layers = state.getValue(SnowLayerBlock.LAYERS);
+            if (layers < 8) { // 최대 8층까지 쌓임
+                world.setBlockAndUpdate(pos, state.setValue(SnowLayerBlock.LAYERS, layers + 1));
+            }
+        } else if (state.isAir()) {
+            world.setBlockAndUpdate(pos, Blocks.SNOW.defaultBlockState().setValue(SnowLayerBlock.LAYERS, 1));
+        }
     }
 }

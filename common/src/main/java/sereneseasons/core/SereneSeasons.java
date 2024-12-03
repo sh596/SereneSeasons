@@ -12,10 +12,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import sereneseasons.command.SeasonCommands;
 import sereneseasons.init.*;
-import sereneseasons.season.RandomUpdateHandler;
-import sereneseasons.season.SeasonHandler;
-import sereneseasons.season.SeasonalCropGrowthHandler;
-import sereneseasons.season.TemperatureHandler;
+import sereneseasons.season.*;
 
 public class SereneSeasons
 {
@@ -49,8 +46,13 @@ public class SereneSeasons
         EventManager.addListener(SeasonHandler::onLevelTick);
         EventManager.addListener(SeasonHandler::onJoinLevel);
 
-        //Tmperature
-        EventManager.addListener(TemperatureHandler::onLevelTick);
+        //BossBar
+        EventManager.addListener(BossBarHandler::onJoinLevel);
+        EventManager.addListener(BossBarHandler::onWorldTick);
+
+        //Temperature
+        EventManager.addListener(TemperatureHandler::onJoinLevel);
+
 
         // Melting
         EventManager.addListener(RandomUpdateHandler::onWorldTick);

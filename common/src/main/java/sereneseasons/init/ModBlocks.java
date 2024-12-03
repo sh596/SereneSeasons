@@ -13,7 +13,12 @@ public class ModBlocks
 {
     public static void registerBlocks(BiConsumer<ResourceLocation, Block> func)
     {
-        SSBlocks.SEASON_SENSOR = register(func, new SeasonSensorBlock(Block.Properties.of().strength(0.2F).sound(SoundType.STONE)), "season_sensor");
+        SSBlocks.SEASON_SENSOR = register(func, new SeasonSensorBlock(
+                        Block.Properties.of()
+                                .strength(0.2F)
+                                .sound(SoundType.STONE)),
+                "season_sensor");
+
     }
 
     private static Block register(BiConsumer<ResourceLocation, Block> func, Block block, String name)

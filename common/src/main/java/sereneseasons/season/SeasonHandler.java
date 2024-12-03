@@ -18,6 +18,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.world.level.storage.DimensionDataStorage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import sereneseasons.api.SSGameRules;
 import sereneseasons.api.season.ISeasonState;
 import sereneseasons.api.season.Season;
@@ -35,6 +37,7 @@ public class SeasonHandler implements SeasonHelper.ISeasonDataProvider
 {
     public static final HashMap<Level, Long> lastDayTimes = new HashMap<>();
     public static final HashMap<Level, Integer> updateTicks = new HashMap<>();
+    private static final Logger log = LoggerFactory.getLogger(SeasonHandler.class);
 
     public static void onLevelTick(TickEvent.Level event)
     {
