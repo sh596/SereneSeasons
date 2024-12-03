@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "sereneseasons:block/radish_stage0"
+    },
+    "age=1": {
+      "model": "sereneseasons:block/radish_stage1"
+    },
+    "age=2": {
+      "model": "sereneseasons:block/radish_stage2"
+    },
+    "age=3": {
+      "model": "sereneseasons:block/radish_stage3"
+    }
+  }
+}

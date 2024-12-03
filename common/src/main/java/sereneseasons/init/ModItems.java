@@ -11,7 +11,6 @@ import sereneseasons.core.SereneSeasons;
 
 import sereneseasons.item.CalendarItem;
 import sereneseasons.item.CucumberItem;
-import sereneseasons.item.FoodItem;
 
 import sereneseasons.item.*;
 
@@ -38,14 +37,33 @@ public class ModItems
     	// SS Creative Tab Icon
         SSItems.SS_ICON = register(func, "ss_icon", new Item(new Item.Properties()));
 
+
         // Main Items
         SSItems.CALENDAR = register(func, "calendar", new CalendarItem(new Item.Properties().stacksTo(1)));
-        SSItems.FOOD = register(func, "food", new FoodItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
-                .nutrition(6)
-                .saturationModifier(1.2f)
-                .build()
-        )));
+//        SSItems.FOOD = register(func, "food", new FoodItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
+//                .nutrition(6)
+//                .saturationModifier(1.2f)
+//                .build()
+//        )));
+        SSItems.TOMATO_SEED = register(func, "tomato_seed", new BlockItem(SSBlocks.TOMATO_CROP, new Item.Properties().stacksTo(64)));
 
+        SSItems.SPINACH_SEED = register(func, "spinach_seed", new BlockItem(SSBlocks.SPINACH_CROP, new Item.Properties().stacksTo(64)));
+
+        SSItems.GARLIC_SEED = register(func, "garlic_seed", new BlockItem(SSBlocks.GARLIC_CROP, new Item.Properties().stacksTo(64)));
+
+        SSItems.CUCUMBER_SEED = register(func, "cucumber_seed", new BlockItem(SSBlocks.CUCUMBER_CROP, new Item.Properties().stacksTo(64)));
+
+        SSItems.RADISH_SEED = register(func, "radish_seed", new BlockItem(SSBlocks.RADISH_CROP, new Item.Properties().stacksTo(64)));
+
+        SSItems.CORN_SEED = register(func, "corn_seed", new BlockItem(SSBlocks.CORN_CROP, new Item.Properties().stacksTo(64)));
+
+        SSItems.CHIVES_SEED = register(func, "chives_seed", new BlockItem(SSBlocks.CHIVES_CROP, new Item.Properties().stacksTo(64)));
+
+        SSItems.CABBAGE_SEED = register(func, "cabbage_seed", new BlockItem(SSBlocks.CABBAGE_CROP, new Item.Properties().stacksTo(64)));
+
+        SSItems.NAPACABBAGE_SEED = register(func, "napacabbage_seed", new BlockItem(SSBlocks.NAPACABBAGE_CROP, new Item.Properties().stacksTo(64)));
+
+        SSItems.CHILIPEPPER_SEED = register(func, "chilipepper_seed", new BlockItem(SSBlocks.CHILIPEPPER_CROP, new Item.Properties().stacksTo(64)));
 
         SSItems.CUCUMBER = register(func, "cucumber", new CucumberItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
                 .nutrition(6)
@@ -89,7 +107,7 @@ public class ModItems
                 .saturationModifier(1.2f)
                 .build()
         )));
-        PEPPER = register(func, "pepper", new PepperItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
+        CHILIPEPPER = register(func, "chilipepper", new ChilipepperItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
                 .nutrition(6)
                 .saturationModifier(1.2f)
                 .build()

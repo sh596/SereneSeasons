@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category" : "food",
+  "key": {
+    "P": {
+      "item": "sereneseasons:chilipepper"
+    },
+    "C": {
+      "item": "sereneseasons:cucumber"
+    },
+    "G": {
+      "item": "sereneseasons:garlic"
+    }
+  },
+  "pattern": [
+    "PPP",
+    "GCG"
+  ],
+  "result": {
+    "count": 1,
+    "id": "sereneseasons:cucumber_gimchi"
+  }
+}

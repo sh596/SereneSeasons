@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category" : "food",
+  "key": {
+    "S": {
+      "item": "sereneseasons:spinach"
+    },
+    "M": {
+      "item": "minecraft:milk_bucket"
+    },
+    "B": {
+      "item": "minecraft:bread"
+    },
+    "T": {
+      "item": "sereneseasons:tomato"
+    }
+  },
+  "pattern": [
+    " S ",
+    "TMT",
+    "BBB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "sereneseasons:pizza"
+  }
+}

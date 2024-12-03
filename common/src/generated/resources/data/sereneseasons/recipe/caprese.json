@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category" : "food",
+  "key": {
+    "T": {
+      "item": "sereneseasons:tomato"
+    },
+    "S": {
+      "item": "sereneseasons:spinach"
+    },
+    "M": {
+      "item": "minecraft:milk_bucket"
+    }
+  },
+  "pattern": [
+    "T S",
+    "TMS",
+    "T S"
+  ],
+  "result": {
+    "count": 6,
+    "id": "sereneseasons:caprese"
+  }
+}

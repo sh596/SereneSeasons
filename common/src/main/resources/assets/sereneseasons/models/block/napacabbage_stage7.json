@@ -1,0 +1,6 @@
+{
+  "parent": "sereneseasons:block/crop_cross",
+  "textures": {
+    "cross": "sereneseasons:block/napacabbage_stage7"
+  }
+}

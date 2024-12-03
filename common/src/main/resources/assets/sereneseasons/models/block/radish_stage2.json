@@ -1,0 +1,7 @@
+{
+  "parent": "sereneseasons:block/crop_cross",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "cross": "sereneseasons:block/radish_stage2"
+  }
+}

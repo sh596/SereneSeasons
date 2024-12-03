@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category" : "food",
+  "key": {
+    "C": {
+      "item": "sereneseasons:cucumber"
+    },
+    "W": {
+      "item": "minecraft:water_bucket"
+    },
+    "K": {
+      "item": "minecraft:dried_kelp"
+    }
+  },
+  "pattern": [
+    " K ",
+    " C ",
+    " W "
+  ],
+  "result": {
+    "count": 1,
+    "id": "sereneseasons:cucumbersoup"
+  }
+}
