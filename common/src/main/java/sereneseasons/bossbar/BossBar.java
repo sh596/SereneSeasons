@@ -26,6 +26,9 @@ public class BossBar {
             else if(savedData > 40.0f){
                 bossBar.setColor(BossBarColor.RED);
             }
+            else{
+                bossBar.setColor(BossBarColor.PINK);
+            }
         }
     }
 
