@@ -51,7 +51,7 @@ public class SereneSeasons
         EventManager.addListener(BossBarHandler::onWorldTick);
 
         //Temperature
-        EventManager.addListener(TemperatureHandler::onJoinLevel);
+        EventManager.addListener(TemperatureHandler::onLevelTick);
 
 
         // Melting
