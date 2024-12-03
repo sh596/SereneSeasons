@@ -31,10 +31,7 @@ public class CommandGetTemperature
     private static int getTemp(CommandSourceStack cs, Level world)
     {
         float temp = TemperatureHandler.getTemp(world);
-        cs.sendSuccess(() ->
-                Component
-                        .translatable("commands.sereneseasons.gettemperature.success",
-                                temp+"" ), true);
+        cs.sendSuccess(() -> Component.translatable("commands.sereneseasons.gettemperature.success", temp ), true);
 
         return 1;
     }
