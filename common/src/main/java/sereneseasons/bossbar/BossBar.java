@@ -2,7 +2,6 @@ package sereneseasons.bossbar;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.BossEvent;
 import net.minecraft.server.level.ServerBossEvent;
 import net.minecraft.world.BossEvent.BossBarColor;
 import net.minecraft.world.BossEvent.BossBarOverlay;
@@ -16,11 +15,20 @@ public class BossBar {
     private static ServerBossEvent bossBar;
 
     //보스바 업데이트(world tick)
-    public static void updateBossBar(float progress){
+    public static void updateBossBar(float progress, float savedData){
         if(bossBar != null){
             progress = Float.parseFloat(String.format("%.1f", progress));
             bossBar.setProgress(progress); //틱 당 보스바 값 업데이트
-            bossBar.setName(Component.literal("온도: " + progress)); //틱당 온도 표시 변경
+            bossBar.setName(Component.literal("온도: " + savedData)); //틱당 온도 표시 변경
+            if(savedData < 30.0f){
+                bossBar.setColor(BossBarColor.BLUE);
+            }
+            else if(savedData > 40.0f){
+                bossBar.setColor(BossBarColor.RED);
+            }
+            else{
+                bossBar.setColor(BossBarColor.PINK);
+            }
         }
     }
 
