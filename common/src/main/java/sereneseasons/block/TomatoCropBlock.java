@@ -2,6 +2,7 @@ package sereneseasons.block;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
@@ -20,6 +21,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.Level;
 import sereneseasons.api.season.Season;
 import sereneseasons.api.season.SeasonHelper;
+import net.minecraft.world.item.ItemStack;
 
 public class TomatoCropBlock extends CropBlock {
     public static final MapCodec<TomatoCropBlock> CODEC = simpleCodec(TomatoCropBlock::new);
@@ -29,6 +31,23 @@ public class TomatoCropBlock extends CropBlock {
 
     public TomatoCropBlock(Properties $$0) {
         super($$0);
+    }
+
+    @Override
+    public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
+        if (!state.is(newState.getBlock())) {
+            // 1개 또는 2개 씨앗을 드롭
+            RandomSource random = level.getRandom();
+            int seedCount = random.nextInt(2) + 1;
+            popResource(level, pos, new ItemStack(getBaseSeedId(), seedCount));
+
+            // 블록이 완전히 성장했으면 아이템 드롭
+            if (state.getValue(getAgeProperty()) >= getMaxAge()) {
+                popResource(level, pos, new ItemStack(SSItems.TOMATO, 1));
+            }
+        }
+
+        super.onRemove(state, level, pos, newState, isMoving);
     }
 
     public boolean canSurvive(BlockState state, Level level, BlockPos pos) {
@@ -59,10 +78,10 @@ public class TomatoCropBlock extends CropBlock {
             if (random.nextFloat() < 0.5f) {
                 level.removeBlock(pos, false);  // 작물을 제거
             }
-            return;  // 더 이상 성장하지 않음
+            return;
         }
 
-        // 겨울일 경우 정상적으로 성장
+        // 가을일 경우 정상적으로 성장
         super.randomTick(state, level, pos, random);
     }
 

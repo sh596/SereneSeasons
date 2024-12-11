@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.block.state.properties.Property;
+import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import sereneseasons.api.SSItems;
@@ -20,6 +21,9 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.Level;
 import sereneseasons.api.season.Season;
 import sereneseasons.api.season.SeasonHelper;
+import net.minecraft.world.item.ItemStack;
+
+
 
 public class NapacabbageCropBlock extends CropBlock {
     public static final MapCodec<NapacabbageCropBlock> CODEC = simpleCodec(NapacabbageCropBlock::new);
@@ -31,13 +35,29 @@ public class NapacabbageCropBlock extends CropBlock {
         super($$0);
     }
 
+    @Override
+    public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
+        if (!state.is(newState.getBlock())) {
+            // 1개 또는 2개 씨앗을 드롭
+            RandomSource random = level.getRandom();
+            int seedCount = random.nextInt(2) + 1;
+            popResource(level, pos, new ItemStack(getBaseSeedId(), seedCount));
+
+            // 블록이 완전히 성장했으면 아이템 드롭
+            if (state.getValue(getAgeProperty()) >= getMaxAge()) {
+                popResource(level, pos, new ItemStack(SSItems.NAPACABBAGE, 1));
+            }
+        }
+
+        super.onRemove(state, level, pos, newState, isMoving);
+    }
+
+
     public boolean canSurvive(BlockState state, Level level, BlockPos pos) {
-        // 부모 클래스의 기본 생존 조건 확인
         if (!super.canSurvive(state, level, pos)) {
             return false;
         }
 
-        // 현재 계절이 겨울인지 확인
         Season.SubSeason subSeason = SeasonHelper.getSeasonState(level).getSubSeason();
         return isWinter(subSeason);  // 겨울에만 생존 가능
     }
@@ -55,11 +75,11 @@ public class NapacabbageCropBlock extends CropBlock {
         Season.SubSeason subSeason = SeasonHelper.getSeasonState(level).getSubSeason();
 
         if (!isWinter(subSeason)) {
-            // 겨울이 아닌 경우 일정 확률로 작물 파괴 (30% 확률 예시)
+            // 겨울이 아닌 경우 일정 확률로 작물 파괴
             if (random.nextFloat() < 0.5f) {
-                level.removeBlock(pos, false);  // 작물을 제거 (false는 업데이트 없음)
+                level.removeBlock(pos, false);  // 작물을 제거
             }
-            return;  // 더 이상 성장하지 않음
+            return;
         }
 
         // 겨울일 경우 정상적으로 성장
