@@ -19,7 +19,8 @@ import java.util.function.Supplier;
 
 import java.util.function.Supplier;
 
-
+import static sereneseasons.season.TemperatureHandler.getSeasonSavedData;
+import static sereneseasons.season.TemperatureHandler.getTemperatureSavedData;
 
 public class BossBarHandler {
     private static final Logger log = LoggerFactory.getLogger(BossBarHandler.class);
@@ -33,25 +34,30 @@ public class BossBarHandler {
         }
     }
 
+    static float worldTemp = 0.0f;
     public static void onWorldTick(TickEvent.Level event) {
 
         TemperatureSavedData worldTemperatureData = getTemperatureSavedData(event.getLevel());
         PlayerTemperatureSavedData savedData = getPlayerTemperatureSavedData(event.getLevel());
-
+        SeasonSavedData seasonSavedData = getSeasonSavedData(event.getLevel());
         tickcount++;
+        if(seasonSavedData.seasonCycleTicks % SeasonTime.ZERO.getDayDuration() == 2){
+            worldTemp = TemperatureHandler.getTemp(event.getLevel());
+        }
         if (tickcount >= Integer.MAX_VALUE) {
             tickcount = 0;
         }
         if(tickcount % 20 == 0) {
-            if(savedData.playerTemperature > worldTemperatureData.temperature){
+            if(savedData.playerTemperature > worldTemp){
                 savedData.playerTemperature -= 0.1f;
             }
-            if(savedData.playerTemperature < worldTemperatureData.temperature){
+            if(savedData.playerTemperature < worldTemp){
                 savedData.playerTemperature += 0.1f;
             }
         }
         log.info(String.valueOf(savedData.playerTemperature));
-        log.info(String.valueOf(worldTemperatureData.temperature));
+        log.info("log temp : "+ (worldTemp) + " " + tickcount);
+
 
         progress = savedData.playerTemperature * 0.013f;
         BossBar.updateBossBar(progress, savedData.playerTemperature);
@@ -60,34 +66,7 @@ public class BossBarHandler {
         //event.getLevel().tickRateManager().setTickRate(1);
     }
 
-    public static TemperatureSavedData getTemperatureSavedData(Level w) {
-        if (w.isClientSide() || !(w instanceof ServerLevel)) {
-            return null;
-        }
 
-        ServerLevel world = (ServerLevel) w;
-        DimensionDataStorage saveDataManager = world.getChunkSource().getDataStorage();
-
-        Supplier<TemperatureSavedData> defaultSaveDataSupplier = () ->
-        {
-            TemperatureSavedData savedData = new TemperatureSavedData();
-
-            int startingSeason = ModConfig.seasons.startingSubSeason;
-
-            if (startingSeason == 0) {
-                savedData.temperature = (world.random.nextInt(12)) * SeasonTime.ZERO.getSubSeasonDuration();
-            }
-
-            if (startingSeason > 0) {
-                savedData.temperature = (startingSeason - 1) * SeasonTime.ZERO.getSubSeasonDuration();
-            }
-
-            savedData.setDirty(); //Mark for saving
-            return savedData;
-        };
-
-        return saveDataManager.computeIfAbsent(new SavedData.Factory<>(defaultSaveDataSupplier, TemperatureSavedData::load, DataFixTypes.LEVEL), TemperatureSavedData.DATA_IDENTIFIER);
-    }
 
     public static PlayerTemperatureSavedData getPlayerTemperatureSavedData(Level w) {
         if (w.isClientSide() || !(w instanceof ServerLevel)) {
