@@ -8,6 +8,14 @@ import net.minecraft.world.item.Item;
 
 public class SSItems
 {
+    public static Item HOTPACK;
+
+    public static Item MASK;
+    public static Item WARM_HELMET;
+    public static Item WARM_CHESTPLATE;
+    public static Item WARM_LEGGINGS;
+    public static Item WARM_BOOTS;
+
     public static Item NAPACABBAGE_SEED;
     public static Item TOMATO_SEED;
     public static Item CORN_SEED;

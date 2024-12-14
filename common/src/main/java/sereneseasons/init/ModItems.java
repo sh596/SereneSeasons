@@ -8,6 +8,10 @@ import net.minecraft.world.item.Item;
 import sereneseasons.api.SSBlocks;
 import sereneseasons.api.SSItems;
 import sereneseasons.core.SereneSeasons;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.ArmorMaterials;
+import net.minecraft.core.Holder;
+import net.minecraft.core.registries.BuiltInRegistries;
 
 import sereneseasons.item.CalendarItem;
 import sereneseasons.item.CucumberItem;
@@ -39,12 +43,48 @@ public class ModItems
 
 
         // Main Items
+        SSItems.HOTPACK = register(func, "hotpack", new HotpackItem(new Item.Properties()
+                .stacksTo(1)
+                .durability(100)));
+
+        SSItems.MASK = register(func, "mask", new ArmorItem(
+                ArmorMaterials.LEATHER,
+                ArmorItem.Type.HELMET,
+                new Item.Properties()
+                        .stacksTo(1)
+                        .durability(100)));
+
+        SSItems.WARM_HELMET = register(func, "warm_helmet", new ArmorItem(
+                ArmorMaterials.LEATHER,
+                ArmorItem.Type.HELMET,
+                new Item.Properties()
+                        .stacksTo(1)
+                        .durability(100)));
+
+        SSItems.WARM_LEGGINGS = register(func, "warm_leggings", new ArmorItem(
+                ArmorMaterials.LEATHER,
+                ArmorItem.Type.LEGGINGS,
+                new Item.Properties()
+                        .stacksTo(1)
+                        .durability(100)));
+
+        SSItems.WARM_CHESTPLATE = register(func, "warm_chestplate", new ArmorItem(
+                ArmorMaterials.LEATHER,
+                ArmorItem.Type.CHESTPLATE,
+                new Item.Properties()
+                        .stacksTo(1)
+                        .durability(100)));
+
+        SSItems.WARM_BOOTS = register(func, "warm_boots", new ArmorItem(
+                ArmorMaterials.LEATHER,
+                ArmorItem.Type.BOOTS,
+                new Item.Properties()
+                        .stacksTo(1)
+                        .durability(100)));
+
+
         SSItems.CALENDAR = register(func, "calendar", new CalendarItem(new Item.Properties().stacksTo(1)));
-//        SSItems.FOOD = register(func, "food", new FoodItem(new Item.Properties().stacksTo(64).food(new FoodProperties.Builder()
-//                .nutrition(6)
-//                .saturationModifier(1.2f)
-//                .build()
-//        )));
+
         SSItems.TOMATO_SEED = register(func, "tomato_seed", new BlockItem(SSBlocks.TOMATO_CROP, new Item.Properties().stacksTo(64)));
 
         SSItems.SPINACH_SEED = register(func, "spinach_seed", new BlockItem(SSBlocks.SPINACH_CROP, new Item.Properties().stacksTo(64)));

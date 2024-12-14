@@ -47,6 +47,11 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Locale;
 
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.layers.RenderLayer;
+import net.minecraft.client.renderer.entity.player.PlayerRenderer;
+import sereneseasons.api.SSItems;
+
 public class ModClient
 {
     public static void setup()
