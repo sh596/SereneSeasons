@@ -59,9 +59,9 @@ public class BossBarHandler {
             }
             else if(worldTemp > 23) {
                 if(worldTemp >= 30){
-                    playerTemp += 0.11f;
+                    playerTemp += 0.01f;
                 }
-                playerTemp += 0.013f;
+                playerTemp += 0.003f;
             }
             else{
                 if(playerTemp > 36.5f){
