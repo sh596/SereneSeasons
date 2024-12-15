@@ -18,13 +18,12 @@ public class BossBar {
     public static void updateBossBar(float progress, float savedData){
         if(bossBar != null){
             progress = Float.parseFloat(String.format("%.1f", progress));
-            String formattedSavedData = String.format("%.1f", savedData);
             bossBar.setProgress(progress); //틱 당 보스바 값 업데이트
-            bossBar.setName(Component.literal("온도: " + formattedSavedData)); //틱당 온도 표시 변경
-            if(savedData <= 35.5f){
+            bossBar.setName(Component.literal("온도: " + savedData)); //틱당 온도 표시 변경
+            if(savedData <= 35.0f){
                 bossBar.setColor(BossBarColor.BLUE);
             }
-            else if(savedData >= 38.0f){
+            else if(savedData >= 37.5f){
                 bossBar.setColor(BossBarColor.RED);
             }
             else{

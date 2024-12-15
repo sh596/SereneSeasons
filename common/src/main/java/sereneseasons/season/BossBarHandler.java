@@ -19,7 +19,8 @@ import java.util.function.Supplier;
 
 import java.util.function.Supplier;
 
-import static sereneseasons.season.TemperatureHandler.*;
+import static sereneseasons.season.TemperatureHandler.getSeasonSavedData;
+import static sereneseasons.season.TemperatureHandler.getTemperatureSavedData;
 
 public class BossBarHandler {
     private static final Logger log = LoggerFactory.getLogger(BossBarHandler.class);
@@ -33,7 +34,7 @@ public class BossBarHandler {
         }
     }
 
-    public static float worldTemp = 20.0f;
+    static float worldTemp = 20.0f;
     static float playerTemp = 36.5f;
     public static void onWorldTick(TickEvent.Level event) {
 
@@ -46,12 +47,11 @@ public class BossBarHandler {
         if(seasonSavedData.seasonCycleTicks % SeasonTime.ZERO.getDayDuration() == 2){
             worldTemp = TemperatureHandler.getTemp(event.getLevel());
         }
-
         if (tickcount >= Integer.MAX_VALUE) {
             tickcount = 0;
         }
         if(tickcount % 60 == 0) {
-            if(worldTemp  < 15) {
+            if(worldTemp < 15) {
                 if(worldTemp <= 5){
                     playerTemp -= 0.01f;
                 }
