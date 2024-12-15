@@ -34,7 +34,7 @@ public class BossBarHandler {
         }
     }
 
-    static float worldTemp = 20.0f;
+    public static float worldTemp = 20.0f;
     static float playerTemp = 36.5f;
     public static void onWorldTick(TickEvent.Level event) {
 
