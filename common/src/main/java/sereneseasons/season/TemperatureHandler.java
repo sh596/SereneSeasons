@@ -30,6 +30,9 @@ import java.util.function.Supplier;
 public class TemperatureHandler {
 
     private static int tickCounter = 0;
+    private static int snowCounter = 0;
+    private static boolean isSnow = false;
+
     private static final Logger log = LoggerFactory.getLogger(TemperatureHandler.class);
 
     public static void onLevelTick(TickEvent.Level event){
@@ -46,12 +49,17 @@ public class TemperatureHandler {
                     }
                 }
             }
-            if(subSeason.equals(Season.SubSeason.MID_WINTER)){
+            if(isSnow){
+                snowCounter++;
                 for (Player player : event.getLevel().players()) {
                     if(player.position().y > 65){
                         addSnowInRadius((ServerLevel) event.getLevel(), 15);
                         spawnSnowParticle((ServerLevel) event.getLevel(), player.position());
                     }
+                }
+                if(snowCounter == 20000){
+                    snowCounter = 0;
+                    isSnow = false;
                 }
             }
             if(seasonSavedData.seasonCycleTicks != 0){
@@ -109,6 +117,7 @@ public class TemperatureHandler {
     public static void updateSavedData(Level level ,TemperatureSavedData savedData, int ticks, Season.SubSeason subSeason){
         log.info("duration"+(SeasonTime.ZERO.getDayDuration()));
         if(ticks % SeasonTime.ZERO.getDayDuration() ==1){
+            isSnow = false;
             switch (subSeason){
                 case EARLY_SPRING -> {
                     savedData.temperature = ((-2.0f) + ((11.0f + 2.0f) * level.random.nextFloat()));
@@ -179,6 +188,10 @@ public class TemperatureHandler {
                 }
                 case MID_WINTER ->{
                     savedData.temperature = ((-12.0f) + ((2.0f + 12.0f) * level.random.nextFloat()));
+                    int snowValue =  level.random.nextInt(8);
+                    if(snowValue == 0){
+                        isSnow = true;
+                    }
                     savedData.setDirty();
 
 
