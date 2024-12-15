@@ -34,12 +34,15 @@ public class BossBarHandler {
         }
     }
 
-    static float worldTemp = 0.0f;
+    static float worldTemp = 20.0f;
+    static float playerTemp = 36.5f;
     public static void onWorldTick(TickEvent.Level event) {
 
-        TemperatureSavedData worldTemperatureData = getTemperatureSavedData(event.getLevel());
         PlayerTemperatureSavedData savedData = getPlayerTemperatureSavedData(event.getLevel());
         SeasonSavedData seasonSavedData = getSeasonSavedData(event.getLevel());
+
+        savedData.playerTemperature = playerTemp;
+
         tickcount++;
         if(seasonSavedData.seasonCycleTicks % SeasonTime.ZERO.getDayDuration() == 2){
             worldTemp = TemperatureHandler.getTemp(event.getLevel());
@@ -47,20 +50,34 @@ public class BossBarHandler {
         if (tickcount >= Integer.MAX_VALUE) {
             tickcount = 0;
         }
-        if(tickcount % 20 == 0) {
-            if(savedData.playerTemperature > worldTemp){
-                savedData.playerTemperature -= 0.1f;
+        if(tickcount % 60 == 0) {
+            if(worldTemp < 15) {
+                if(worldTemp <= 5){
+                    playerTemp -= 0.01f;
+                }
+                playerTemp -= 0.003f;
             }
-            if(savedData.playerTemperature < worldTemp){
-                savedData.playerTemperature += 0.1f;
+            else if(worldTemp > 23) {
+                if(worldTemp >= 30){
+                    playerTemp += 0.01f;
+                }
+                playerTemp += 0.003f;
+            }
+            else{
+                if(playerTemp > 36.5f){
+                    playerTemp -= 0.001f;
+                }
+                else{
+                    playerTemp += 0.001f;
+                }
             }
         }
-        log.info(String.valueOf(savedData.playerTemperature));
+        log.info(String.valueOf(playerTemp));
         log.info("log temp : "+ (worldTemp) + " " + tickcount);
 
 
-        progress = savedData.playerTemperature * 0.013f;
-        BossBar.updateBossBar(progress, savedData.playerTemperature);
+        progress = (playerTemp - 33.0f) * 0.142f;
+        BossBar.updateBossBar(progress, playerTemp);
         savedData.setDirty();
 
         //event.getLevel().tickRateManager().setTickRate(1);

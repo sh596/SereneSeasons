@@ -24,15 +24,7 @@ public class PlayerTemperatureSavedData extends SavedData {
 
     public static PlayerTemperatureSavedData load(CompoundTag nbt, HolderLookup.Provider provider) {
         PlayerTemperatureSavedData data = new PlayerTemperatureSavedData();
-
-        // NBT에 playerTemperature 값이 없으면 기본값 36.5f 사용
-        if (nbt.contains("playerTemperature")) {
-            data.playerTemperature = Mth.clamp(nbt.getFloat("playerTemperature"), 36.5f, SeasonTime.ZERO.getCycleDuration());
-        } else {
-            // NBT에 값이 없으면 기본값으로 설정
-            data.playerTemperature = 36.5f;
-        }
-
+        data.playerTemperature = Mth.clamp(nbt.getFloat("playerTemperature"), 0, SeasonTime.ZERO.getCycleDuration());
         return data;
     }
 
