@@ -26,40 +26,39 @@ public class PlayerStateHandler {
             tickcount = 0;
         }
 
-        if (tickcount % 100 == 0){
-            for(Player player : event.getLevel().players()) {
-                if(player != null) {
-                    //Hot
-                    if(savedData != null && savedData.playerTemperature > 38.5) {
-                        applyConfusion(player);
+        if(tickcount % 110 == 0) {
+            if (savedData != null && savedData.playerTemperature > 38.5 && savedData.playerTemperature < 40) {
+                for (Player player : event.getLevel().players()) {
+                    if (player != null) {
                         applyWeakness(player);
-                    }
-
-                    else if(savedData != null && savedData.playerTemperature > 40) {
                         applyConfusion(player);
-                        applyWeakness(player);
-                        applyDamage(player);
-                    }
-
-                    //Cold
-                    else if(savedData != null && savedData.playerTemperature < 35) {
-                        applySlowness(player);
-                    }
-
-                    else if(savedData != null && savedData.playerTemperature < 33.5) {
-                        applySlowness(player);
-                        applyDamage(player);
                     }
                 }
             }
-        }
 
-        if(tickcount % 100 == 0) {
-            if (savedData != null && savedData.playerTemperature > 38.5) {
+            else if (savedData != null && savedData.playerTemperature < 35 && savedData.playerTemperature > 33.5) {
                 for (Player player : event.getLevel().players()) {
                     if (player != null) {
-                        applyDamage(player); // 데미지 적용
-                        applyWeakness(player); // 구속 + 멀미 + 나약함 효과 적용
+                        applySlowness(player);
+                    }
+                }
+            }
+
+            else if (savedData != null && savedData.playerTemperature > 40) {
+                for (Player player : event.getLevel().players()) {
+                    if (player != null) {
+                        applyDamage(player);
+                        applyConfusion(player);
+                        applyWeakness(player);
+                    }
+                }
+            }
+
+            else if (savedData != null && savedData.playerTemperature < 33.5) {
+                for (Player player : event.getLevel().players()) {
+                    if (player != null) {
+                        applyDamage(player);
+                        applySlowness(player);
                     }
                 }
             }
@@ -79,7 +78,7 @@ public class PlayerStateHandler {
 
     private  static void applyConfusion(Player player) {
         if (player != null) {
-            player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 60, 0));
+            player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 120, 1000));
         }
     }
 
