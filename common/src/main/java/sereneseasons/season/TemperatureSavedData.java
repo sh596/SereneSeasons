@@ -22,5 +22,4 @@ public class TemperatureSavedData extends SavedData {
         data.temperature = Mth.clamp(nbt.getFloat("temperature"), 0, SeasonTime.ZERO.getCycleDuration());
         return data;
     }
-
 }

@@ -57,7 +57,7 @@ public class TemperatureHandler {
             if(seasonSavedData.seasonCycleTicks != 0){
                 updateSavedData(event.getLevel(), savedData, seasonSavedData.seasonCycleTicks, subSeason);
             }
-            log.info(String.valueOf(seasonSavedData.seasonCycleTicks));
+            //log.info(String.valueOf(seasonSavedData.seasonCycleTicks));
         }
 
         // 메모리 관리를 위해 카운터 리셋 (선택적)
@@ -107,7 +107,8 @@ public class TemperatureHandler {
     }
 
     public static void updateSavedData(Level level ,TemperatureSavedData savedData, int ticks, Season.SubSeason subSeason){
-        log.info("duration"+(SeasonTime.ZERO.getDayDuration()));
+        //log.info("duration"+(SeasonTime.ZERO.getDayDuration()));
+        log.info( "temp "+(savedData.temperature));
         if(ticks % SeasonTime.ZERO.getDayDuration() ==1){
             switch (subSeason){
                 case EARLY_SPRING -> {
@@ -227,6 +228,7 @@ public class TemperatureHandler {
 
         return saveDataManager.computeIfAbsent(new SavedData.Factory<>(defaultSaveDataSupplier, TemperatureSavedData::load, DataFixTypes.LEVEL), TemperatureSavedData.DATA_IDENTIFIER);
     }
+
     public static SeasonSavedData getSeasonSavedData(Level w)
     {
         if (w.isClientSide() || !(w instanceof ServerLevel))
