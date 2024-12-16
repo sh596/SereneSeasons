@@ -19,8 +19,9 @@ import java.util.function.Supplier;
 
 import java.util.function.Supplier;
 
-import static sereneseasons.season.TemperatureHandler.getSeasonSavedData;
+import static sereneseasons.season.SeasonHandler.getSeasonSavedData;
 import static sereneseasons.season.TemperatureHandler.getTemperatureSavedData;
+
 
 public class BossBarHandler {
     private static final Logger log = LoggerFactory.getLogger(BossBarHandler.class);
