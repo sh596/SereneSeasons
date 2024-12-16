@@ -36,6 +36,7 @@ public class SereneSeasons
         regHelper.addRegistrar(Registries.BLOCK, ModBlocks::registerBlocks);
         regHelper.addRegistrar(Registries.BLOCK_ENTITY_TYPE, ModBlockEntities::registerBlockEntities);
         regHelper.addRegistrar(Registries.ITEM, ModItems::setup);
+        regHelper.addRegistrar(Registries.MOB_EFFECT, ModEffect::setup );
         regHelper.addRegistrar(Registries.CREATIVE_MODE_TAB, ModCreativeTab::registerCreativeTabs);
         regHelper.addRegistrar(Registries.COMMAND_ARGUMENT_TYPE, SeasonCommands::registerArguments);
     }
@@ -45,13 +46,13 @@ public class SereneSeasons
         // Season updates
         EventManager.addListener(SeasonHandler::onLevelTick);
         EventManager.addListener(SeasonHandler::onJoinLevel);
+        EventManager.addListener(TemperatureHandler::onLevelTick);
 
         //BossBar
         EventManager.addListener(BossBarHandler::onJoinLevel);
         EventManager.addListener(BossBarHandler::onWorldTick);
 
         //Temperature
-        EventManager.addListener(TemperatureHandler::onLevelTick);
 
 
         // Melting

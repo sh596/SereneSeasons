@@ -2,13 +2,24 @@ package sereneseasons.season;
 
 import glitchcore.event.TickEvent;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.network.chat.TextColor;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.datafix.DataFixTypes;
+import net.minecraft.world.damagesource.DamageType;
+import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
@@ -22,6 +33,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import sereneseasons.api.season.Season;
 import sereneseasons.api.season.SeasonHelper;
+import sereneseasons.core.SereneSeasons;
+import sereneseasons.effect.ColdEffect;
+import sereneseasons.effect.SSEffects;
 import sereneseasons.init.ModConfig;
 
 import java.util.function.Supplier;
@@ -31,7 +45,7 @@ public class TemperatureHandler {
     private static final Logger log = LoggerFactory.getLogger(TemperatureHandler.class);
     private static final float SNOW_CHANCE = 0.2f;
 
-    private static int tickCounter = 0;
+    static int tickCounter = 0;
     private static int snowCounter = 0;
     private static boolean isSnow = false;
 
@@ -41,8 +55,14 @@ public class TemperatureHandler {
         if (tickCounter % 2 == 0) {
             processSeason(event);
         }
-
+        log.info("Damage");
         resetTickCounterIfNeeded();
+        for (Player player:event.getLevel().players()){
+            if(player != null){
+
+//                player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 10000, 1));
+            }
+        }
     }
 
     private static void processSeason(TickEvent.Level event) {
@@ -73,6 +93,7 @@ public class TemperatureHandler {
 
     public static float getTemp(Level level) {
         TemperatureSavedData temperatureData = getTemperatureSavedData(level);
+        assert temperatureData != null;
         return temperatureData.temperature;
     }
 
