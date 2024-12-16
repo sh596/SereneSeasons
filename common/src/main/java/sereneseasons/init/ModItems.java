@@ -54,28 +54,28 @@ public class ModItems
                         .stacksTo(1)
                         .durability(100)));
 
-        SSItems.WARM_HELMET = register(func, "warm_helmet", new ArmorItem(
+        SSItems.WARM_HELMET = register(func, "warm_helmet", new WarmHelmetItem(
                 ArmorMaterials.LEATHER,
                 ArmorItem.Type.HELMET,
                 new Item.Properties()
                         .stacksTo(1)
                         .durability(100)));
 
-        SSItems.WARM_LEGGINGS = register(func, "warm_leggings", new ArmorItem(
+        SSItems.WARM_LEGGINGS = register(func, "warm_leggings", new WarmLeggingsItem(
                 ArmorMaterials.LEATHER,
                 ArmorItem.Type.LEGGINGS,
                 new Item.Properties()
                         .stacksTo(1)
                         .durability(100)));
 
-        SSItems.WARM_CHESTPLATE = register(func, "warm_chestplate", new ArmorItem(
+        SSItems.WARM_CHESTPLATE = register(func, "warm_chestplate", new WarmChestplateItem(
                 ArmorMaterials.LEATHER,
                 ArmorItem.Type.CHESTPLATE,
                 new Item.Properties()
                         .stacksTo(1)
                         .durability(100)));
 
-        SSItems.WARM_BOOTS = register(func, "warm_boots", new ArmorItem(
+        SSItems.WARM_BOOTS = register(func, "warm_boots", new WarmBootsItem(
                 ArmorMaterials.LEATHER,
                 ArmorItem.Type.BOOTS,
                 new Item.Properties()

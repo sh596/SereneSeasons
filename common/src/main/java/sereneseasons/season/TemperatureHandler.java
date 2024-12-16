@@ -132,6 +132,7 @@ public class TemperatureHandler {
 
     static TemperatureSavedData getTemperatureSavedData(Level level) {
         if (level.isClientSide() || !(level instanceof ServerLevel serverLevel)) {
+
             return null;
         }
 
