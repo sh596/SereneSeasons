@@ -27,11 +27,11 @@ public class HotpackItem extends Item {
             boolean isInOffHand = player.getOffhandItem() == stack;
 
             if ((isInMainHand || isInOffHand) && counting == 0) {
-                adjustWorldTemperature(level, 1.0f);
+                adjustWorldTemperature(level, 5.0f);
                 counting++;
             }
             else if(!isInMainHand && !isInOffHand && counting == 1) {
-                adjustWorldTemperature(level, -1.0f);
+                adjustWorldTemperature(level, -5.0f);
                 counting--;
             }
         }

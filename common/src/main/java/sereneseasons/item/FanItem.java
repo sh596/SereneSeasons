@@ -27,11 +27,11 @@ public class FanItem extends Item {
             boolean isInOffHand = player.getOffhandItem() == stack;
 
             if ((isInMainHand || isInOffHand) && counting == 0) {
-                adjustWorldTemperature(level, -3.0f);
+                adjustWorldTemperature(level, -12f);
                 counting++;
             }
             else if(!isInMainHand && !isInOffHand && counting == 1) {
-                adjustWorldTemperature(level, 3.0f);
+                adjustWorldTemperature(level, 12f);
                 counting--;
             }
         }
