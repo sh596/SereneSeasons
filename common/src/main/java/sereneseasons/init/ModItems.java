@@ -47,6 +47,10 @@ public class ModItems
                 .stacksTo(1)
                 .durability(100)));
 
+        SSItems.FAN = register(func, "fan", new FanItem(new Item.Properties()
+                .stacksTo(1)
+                .durability(100)));
+
         SSItems.MASK = register(func, "mask", new ArmorItem(
                 ArmorMaterials.LEATHER,
                 ArmorItem.Type.HELMET,

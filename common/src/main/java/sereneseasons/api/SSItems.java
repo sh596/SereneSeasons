@@ -9,6 +9,7 @@ import net.minecraft.world.item.Item;
 public class SSItems
 {
     public static Item HOTPACK;
+    public static Item FAN;
 
     public static Item MASK;
     public static Item WARM_HELMET;

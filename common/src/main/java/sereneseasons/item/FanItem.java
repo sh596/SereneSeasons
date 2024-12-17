@@ -9,10 +9,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import sereneseasons.season.BossBarHandler;
 
-public class HotpackItem extends Item {
-    private static final Logger log = LoggerFactory.getLogger(HotpackItem.class);
+public class FanItem extends Item {
+    private static final Logger log = LoggerFactory.getLogger(FanItem.class);
 
-    public HotpackItem(Properties properties) {
+    public FanItem(Properties properties) {
         super(properties);
     }
 
@@ -27,11 +27,11 @@ public class HotpackItem extends Item {
             boolean isInOffHand = player.getOffhandItem() == stack;
 
             if ((isInMainHand || isInOffHand) && counting == 0) {
-                adjustWorldTemperature(level, 1.0f);
+                adjustWorldTemperature(level, -3.0f);
                 counting++;
             }
             else if(!isInMainHand && !isInOffHand && counting == 1) {
-                adjustWorldTemperature(level, -1.0f);
+                adjustWorldTemperature(level, 3.0f);
                 counting--;
             }
         }
@@ -42,7 +42,7 @@ public class HotpackItem extends Item {
     private void adjustWorldTemperature(Level level, float delta) {
         if (level instanceof ServerLevel serverLevel) {
             BossBarHandler.worldTemp += delta; // BossBarHandler의 worldTemp 조정
-            log.info("HotpackItem: Adjusted world temperature by {}, new temperature: {}", delta, BossBarHandler.worldTemp);
+            log.info("FanItem: Adjusted world temperature by {}, new temperature: {}", delta, BossBarHandler.worldTemp);
         }
     }
 }
